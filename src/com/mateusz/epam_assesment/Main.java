@@ -6,14 +6,7 @@ public class Main {
         // write your code here
 
         Game game = new Game();
-
-//        while(true) {
-//            game.start();
-//        }
-
-        Board board = new Board();
-        board.initializeBoard(3);
-        board.drawBoard();
+        game.start();
 
     }
 }

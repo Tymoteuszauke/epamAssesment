@@ -12,8 +12,8 @@ public class PlayerImp implements Player {
     public int winCount;
 
     @Override
-    public String put(int position) {
-        return "";
+    public String drawSign() {
+        return sign;
     }
 
     @Override
