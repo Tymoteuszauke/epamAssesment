@@ -7,9 +7,13 @@ public class Main {
 
         Game game = new Game();
 
-        while(true) {
-            game.start();
-        }
+//        while(true) {
+//            game.start();
+//        }
+
+        Board board = new Board();
+        board.initializeBoard(3);
+        board.drawBoard();
 
     }
 }

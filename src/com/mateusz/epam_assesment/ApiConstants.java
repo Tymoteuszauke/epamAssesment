@@ -7,5 +7,6 @@ public interface ApiConstants {
 
     String CROSS = "X";
     String CIRLCE = "O";
+    String NOTHING = "-";
 
 }
