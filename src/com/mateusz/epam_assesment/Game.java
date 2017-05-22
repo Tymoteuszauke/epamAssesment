@@ -16,7 +16,6 @@ public class Game {
     private Board board;
 
     private List<Player> players;
-    boolean isRunning;
 
     private Scanner scanner = new Scanner(System.in);
 
@@ -43,6 +42,7 @@ public class Game {
 
         boolean isRunning = true;
 
+        System.out.print("Player X starts");
 
         while (isRunning) {
 
@@ -75,7 +75,7 @@ public class Game {
         }
     }
 
-    public void drawOnBoard(Player player) throws AlreadyTakenPositionException {
+    private void drawOnBoard(Player player) throws AlreadyTakenPositionException {
 
         int x = scanner.nextInt();
         int y = scanner.nextInt();
@@ -87,7 +87,7 @@ public class Game {
         }
     }
 
-    public boolean checkForWinner(String sign) {
+    private boolean checkForWinner(String sign) {
 
         boolean hasWinner = false;
 
