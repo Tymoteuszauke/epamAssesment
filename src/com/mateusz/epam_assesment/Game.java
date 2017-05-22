@@ -67,6 +67,7 @@ public class Game {
                 currentPlayer.setWinCount(currentPlayer.getWinCount() + 1);
                 System.out.print("Players score: X: " + players.get(1).getWinCount() + " " + "O: " + players.get(0).getWinCount());
 
+                continueGame();
                 isRunning = false;
             }
 
@@ -147,5 +148,15 @@ public class Game {
         }
         System.out.println(String.format("Player with sign: '%s' won!", sign));
         return true;
+    }
+
+    private void continueGame() {
+        System.out.print("Do you wish to continue game? y/n");
+        switch (scanner.next()) {
+            case "y": start();
+            break;
+            case "n": return;
+        }
+
     }
 }
