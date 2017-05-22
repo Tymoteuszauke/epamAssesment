@@ -29,9 +29,8 @@ public class Game {
         playerCross = new PlayerImp();
         playerCross.setSign(ApiConstants.CROSS);
         playerCross.setTurnLock(true);
-
-//        players.add(playerCircle);
-//        players.add(playerCross);
+        players.add(playerCircle);
+        players.add(playerCross);
 
         board = new Board();
         board.initializeBoard(3);
@@ -41,13 +40,15 @@ public class Game {
     public void start() {
 
         boolean isRunning = true;
-        Player currentPlayer = players
-                .stream()
-                .filter(Player::hasTurnLock)
-                .findAny()
-                .get();
+
 
         while (isRunning) {
+
+            Player currentPlayer = players
+                    .stream()
+                    .filter(Player::hasTurnLock)
+                    .findAny()
+                    .get();
 
             try {
 
@@ -61,10 +62,15 @@ public class Game {
                 System.out.println("You cannot overdraw already taken position");
             }
 
-            if (checkForWinner(playerCircle.getSign())) {
+            if (checkForWinner(currentPlayer.getSign())) {
                 currentPlayer.setWinCount(currentPlayer.getWinCount() + 1);
+
+                System.out.print("Players score: X: " + players.get(1).getWinCount() + " " + "O: " + players.get(0).getWinCount());
+
                 isRunning = false;
             }
+
+            setLock();
         }
     }
 
@@ -98,6 +104,7 @@ public class Game {
                 player.setTurnLock(true);
             }
         }
+
     }
 
     private boolean checkRow(String sign) {
@@ -135,7 +142,7 @@ public class Game {
     private boolean checkDiagonal(String sign) {
         for (int i = 0; i < board.getSize(); i++) {
             if (!board.getBoard()[i][i].equals(sign))
-                    return false;
+                return false;
 
         }
         System.out.println(String.format("Player with sign: '%s' won!", sign));
