@@ -21,7 +21,10 @@ public class Game {
     private Scanner scanner = new Scanner(System.in);
 
     Game() {
+        this(3);
+    }
 
+    public Game(int boardSize) {
         players = new ArrayList<>();
 
         playerCircle = new PlayerImp();
@@ -33,8 +36,7 @@ public class Game {
         players.add(playerCross);
 
         board = new Board();
-        board.initializeBoard(3);
-
+        board.initializeBoard(boardSize);
     }
 
     public void start() {
@@ -51,7 +53,6 @@ public class Game {
                     .get();
 
             try {
-
                 board.drawBoard();
                 drawOnBoard(currentPlayer);
 
@@ -64,7 +65,6 @@ public class Game {
 
             if (checkForWinner(currentPlayer.getSign())) {
                 currentPlayer.setWinCount(currentPlayer.getWinCount() + 1);
-
                 System.out.print("Players score: X: " + players.get(1).getWinCount() + " " + "O: " + players.get(0).getWinCount());
 
                 isRunning = false;
