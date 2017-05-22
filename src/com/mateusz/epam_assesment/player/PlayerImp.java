@@ -8,16 +8,23 @@ import lombok.Data;
 @Data
 public class PlayerImp implements Player {
 
-    public String sign;
-    public int winCount;
+    private String sign;
+    private int winCount;
+    private boolean turnLock;
+
 
     @Override
     public String drawSign() {
         return sign;
     }
 
+
+    public boolean hasTurnLock() {
+        return turnLock;
+    }
+
     @Override
-    public void setSign(String sign) {
-        this.sign = sign;
+    public void setTurnLock(boolean turnLock) {
+        this.turnLock = turnLock;
     }
 }
