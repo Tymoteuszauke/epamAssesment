@@ -18,7 +18,7 @@ public class PlayerImp implements Player {
         return sign;
     }
 
-
+    @Override
     public boolean hasTurnLock() {
         return turnLock;
     }
