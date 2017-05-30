@@ -1,14 +1,21 @@
 package com.mateusz.epam_assesment;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Created by Mateusz on 22.05.2017.
  */
-@Data
-public class Board {
 
+public enum Board {
+Instance;
+
+    @Getter
+    @Setter
     private String[][] board;
+
+    @Getter
     private int size;
 
     public void initializeBoard(int size) {
@@ -24,6 +31,10 @@ public class Board {
                 System.out.print(board[i][j] + " ");;
             }
         }
+    }
+
+    public String[][] getBoard() {
+        return board;
     }
 
     private void clearBoard() {

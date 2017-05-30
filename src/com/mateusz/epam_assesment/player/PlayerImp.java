@@ -12,7 +12,6 @@ public class PlayerImp implements Player {
     private int winCount;
     private boolean turnLock;
 
-
     @Override
     public String drawSign() {
         return sign;
